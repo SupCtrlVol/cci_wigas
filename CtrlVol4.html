@@ -143,6 +143,9 @@
       <h2>Herramienta de Análisis de Consumo</h2>
       <button onclick="mostrarReporte('eca_tool')">13 GAS</button>
       <button onclick="mostrarReporte('nau_tool')">WIGAS</button>
+      <div class="divider"></div>
+      <h2>Cumplimiento</h2>
+      <button onclick="mostrarReporte('json_tool')">JSON Mensual</button>
     </div>
 
     <div class="contenedor" id="contenedor">
@@ -166,18 +169,18 @@
       src = "https://app.powerbi.com/reportEmbed?reportId=ae66f102-55e0-4358-a5e4-8a8934a144d7&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
     } else if(estacion === 'ventas') {
       src = "https://app.powerbi.com/reportEmbed?reportId=9a54a13b-b1ba-46c0-9d9a-7f36a9bf40e5&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
-    }
-    else if(estacion === 'coacalco') {
+    } else if(estacion === 'coacalco') {
       src = "https://app.powerbi.com/reportEmbed?reportId=f4d6aaf9-dc93-4c70-8ce5-387b713cf9e5&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
     } else if(estacion === 'ecatepecII') {
       src = "https://app.powerbi.com/reportEmbed?reportId=bfa5000f-acc4-4c55-b83b-0ee73fbbbd45&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
     } else if(estacion === 'tlanepantla') {
       src = "https://app.powerbi.com/reportEmbed?reportId=6be45fc4-3d1c-4e4f-a545-92776b7392ea&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
-    }
-    else if(estacion === 'eca_tool') {
+    } else if(estacion === 'eca_tool') {
       src = "https://app.powerbi.com/reportEmbed?reportId=449c2a0f-a1be-4fa6-827b-4500ab1b609f&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
     } else if(estacion === 'nau_tool') {
       src = "https://app.powerbi.com/reportEmbed?reportId=a4e021aa-4281-4f9b-a2fe-07d03d43871d&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
+    } else if(estacion === 'json_tool') {
+      src = "https://app.powerbi.com/reportEmbed?reportId=71c98777-7533-4821-b145-4ad8c9cc2e9d&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
     }
 
     // Insertar el iframe en el contenedor con efecto fade-in

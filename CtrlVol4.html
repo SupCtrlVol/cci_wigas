@@ -1,5 +1,5 @@
 <CtrlVol4.html>
-<html lang="es">
+  <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Centro de Control de Información</title>
@@ -146,6 +146,9 @@
       <div class="divider"></div>
       <h2>Cumplimiento</h2>
       <button onclick="mostrarReporte('json_tool')">JSON Mensual</button>
+      <div class="divider"></div>
+      <h2>Bexica</h2>
+      <button onclick="mostrarReporte('bexica')">Balance Bexica</button>
     </div>
 
     <div class="contenedor" id="contenedor">
@@ -181,6 +184,8 @@
       src = "https://app.powerbi.com/reportEmbed?reportId=a4e021aa-4281-4f9b-a2fe-07d03d43871d&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
     } else if(estacion === 'json_tool') {
       src = "https://app.powerbi.com/reportEmbed?reportId=71c98777-7533-4821-b145-4ad8c9cc2e9d&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
+    } else if(estacion === 'bexica') {
+      src = "https://app.powerbi.com/reportEmbed?reportId=c2052364-3067-4665-bcdb-43e8bf3f8de7&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
     }
 
     // Insertar el iframe en el contenedor con efecto fade-in

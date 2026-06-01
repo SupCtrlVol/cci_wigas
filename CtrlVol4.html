@@ -130,13 +130,13 @@
         <button onclick="mostrarReporte('lr_almacenamiento')">Modelo de Almacenamiento</button>
         <button onclick="mostrarReporte('lr_ducto')">Modelo de Ducto Virtual</button>
       </div>
+      <button onclick="mostrarReporte('bexica')">Bexica</button>
       <button onclick="toggleSubmenu('submenuGNV')">CONSORCIO DE GNV ▼</button>
       <div class="submenu" id="submenuGNV">
         <button onclick="mostrarReporte('coacalco')">Coacalco</button>
         <button onclick="mostrarReporte('ecatepecII')">Ecatepec</button>
         <button onclick="mostrarReporte('tlanepantla')">Tlanepantla</button>
       </div>
-      <button onclick="mostrarReporte('bexica')">Bexica</button>
       <div class="divider"></div>
       <h2>Ventas</h2>
       <button onclick="mostrarReporte('ventas')">Ventas por Cliente</button>
@@ -168,6 +168,8 @@
       src = "https://app.powerbi.com/reportEmbed?reportId=3a6273ad-43d8-414a-a41e-b084836f62e7&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
     } else if(estacion === 'lr_ducto') {
       src = "https://app.powerbi.com/reportEmbed?reportId=ae66f102-55e0-4358-a5e4-8a8934a144d7&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
+    } else if(estacion === 'bexica') {
+      src = "https://app.powerbi.com/reportEmbed?reportId=c2052364-3067-4665-bcdb-43e8bf3f8de7&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
     } else if(estacion === 'ventas') {
       src = "https://app.powerbi.com/reportEmbed?reportId=9a54a13b-b1ba-46c0-9d9a-7f36a9bf40e5&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
     } else if(estacion === 'coacalco') {
@@ -182,8 +184,6 @@
       src = "https://app.powerbi.com/reportEmbed?reportId=a4e021aa-4281-4f9b-a2fe-07d03d43871d&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
     } else if(estacion === 'json_tool') {
       src = "https://app.powerbi.com/reportEmbed?reportId=71c98777-7533-4821-b145-4ad8c9cc2e9d&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
-    } else if(estacion === 'bexica') {
-      src = "https://app.powerbi.com/reportEmbed?reportId=c2052364-3067-4665-bcdb-43e8bf3f8de7&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
     }
 
     // Insertar el iframe en el contenedor con efecto fade-in
@@ -198,4 +198,3 @@
 </script>
 </body>
 </html>
-  

@@ -20,7 +20,6 @@
       align-items: center;
       border-bottom: 8px solid #CA142B;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      position: relative;
     }
     header img {
       height: 45px;
@@ -47,40 +46,6 @@
       border-right: 2px solid #CA142B;
       box-shadow: 2px 0 6px rgba(0,0,0,0.1);
     }
-    .sidebar h2 {
-      font-size: 1.1em;
-      color: #CA142B;
-      margin-bottom: 10px;
-    }
-    .sidebar button {
-      display: block;
-      width: 100%;
-      background-color: #CA142B;
-      color: #fff;
-      border: none;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.95em;
-      text-align: left;
-      transition: background 0.3s;
-    }
-    .sidebar button:hover {
-      background-color: #a01022;
-    }
-    .submenu {
-      display: none;
-      margin-left: 10px;
-    }
-    .submenu button {
-      background-color: #BBB9BA;
-      color: #000;
-    }
-    .divider {
-      border-top: 1px solid #CCC;
-      margin: 15px 0;
-    }
     .contenedor {
       flex: 1;
       background: #fff;
@@ -89,20 +54,19 @@
       border-radius: 10px;
       box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-start;
       position: relative;
     }
+    .gas-widget, .mxn-widget {
+      margin-bottom: 20px;
+    }
     iframe {
-      width: 100%;
-      height: 600px;
+      width: 317px;
+      height: 200px;
       border: none;
       border-radius: 8px;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    iframe.visible {
-      opacity: 1;
     }
     footer {
       background-color: #CA142B;
@@ -110,13 +74,6 @@
       text-align: center;
       padding: 12px;
       font-size: 0.9em;
-    }
-    /* Estilo del widget bursátil */
-    .gas-widget {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      z-index: 1000;
     }
   </style>
 </head>
@@ -131,40 +88,20 @@
 
   <div class="main">
     <div class="sidebar">
-      <h2>Informes de Balance</h2>
-      <button onclick="mostrarReporte('ecatepec')">13 GAS</button>
-      <button onclick="mostrarReporte('naucalpan')">WIGAS</button>
-      <button onclick="toggleSubmenu('submenuLR')">LANDSEGEN ▼</button>
-      <div class="submenu" id="submenuLR">
-        <button onclick="mostrarReporte('lr_almacenamiento')">Modelo de Almacenamiento</button>
-        <button onclick="mostrarReporte('lr_ducto')">Modelo de Ducto Virtual</button>
-      </div>
-      <button onclick="mostrarReporte('bexica')">BEXICA</button>
-      <button onclick="toggleSubmenu('submenuGNV')">CONSORCIO DE GNV ▼</button>
-      <div class="submenu" id="submenuGNV">
-        <button onclick="mostrarReporte('coacalco')">Coacalco</button>
-        <button onclick="mostrarReporte('ecatepecII')">Ecatepec</button>
-        <button onclick="mostrarReporte('tlanepantla')">Tlanepantla</button>
-      </div>
-      <div class="divider"></div>
-      <h2>Ventas</h2>
-      <button onclick="mostrarReporte('ventas')">Ventas por Cliente</button>
-      <div class="divider"></div>
-      <h2>Herramienta de Análisis de Consumo</h2>
-      <button onclick="mostrarReporte('eca_tool')">13 GAS</button>
-      <button onclick="mostrarReporte('nau_tool')">WIGAS</button>
-      <div class="divider"></div>
-      <h2>Cumplimiento</h2>
-      <button onclick="mostrarReporte('json_tool')">JSON Mensual</button>
+      <!-- Aquí mantienes tus botones de reportes -->
     </div>
 
     <div class="contenedor" id="contenedor">
-      <p style="text-align:center; color:#555;">Selecciona un reporte para visualizarlo</p>
-
-      <!-- Widget bursátil de Gas Natural -->
+      <!-- Widget Gas Natural -->
       <div class="gas-widget">
-        <iframe src="https://www.widgets.investing.com/live-commodities?theme=darkTheme&pairs=8863"
-                width="300" height="200" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0">
+        <iframe src="https://ssltsw.investing.com?pairs=8862&theme=darkTheme"
+                frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0">
+        </iframe>
+      </div>
+            <!-- Widget MXN/USD -->
+      <div class="mxn-widget">
+        <iframe src="https://ssltsw.investing.com?pairs=39&theme=darkTheme"
+                frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0">
         </iframe>
       </div>
     </div>
@@ -173,45 +110,5 @@
   <footer>
     Área de Controles Volumétricos
   </footer>
-
-<script>
-  function mostrarReporte(estacion) {
-    let src = '';
-    if(estacion === 'ecatepec') {
-      src = "https://app.powerbi.com/reportEmbed?reportId=2ddebbce-cdf0-4477-aa9a-e0436612e147&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
-    } else if(estacion === 'naucalpan') {
-      src = "https://app.powerbi.com/reportEmbed?reportId=7ae09a8b-e08f-46c7-b5d4-400fba0c5231&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
-    } else if(estacion === 'lr_almacenamiento') {
-      src = "https://app.powerbi.com/reportEmbed?reportId=3a6273ad-43d8-414a-a41e-b084836f62e7&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
-    } else if(estacion === 'lr_ducto') {
-      src = "https://app.powerbi.com/reportEmbed?reportId=ae66f102-55e0-4358-a5e4-8a8934a144d7&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
-    } else if(estacion === 'bexica') {
-      src = "https://app.powerbi.com/reportEmbed?reportId=c2052364-3067-4665-bcdb-43e8bf3f8de7&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
-    } else if(estacion === 'ventas') {
-      src = "https://app.powerbi.com/reportEmbed?reportId=9a54a13b-b1ba-46c0-9d9a-7f36a9bf40e5&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
-    } else if(estacion === 'coacalco') {
-      src = "https://app.powerbi.com/reportEmbed?reportId=f4d6aaf9-dc93-4c70-8ce5-387b713cf9e5&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
-    } else if(estacion === 'ecatepecII') {
-      src = "https://app.powerbi.com/reportEmbed?reportId=bfa5000f-acc4-4c55-b83b-0ee73fbbbd45&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
-    } else if(estacion === 'tlanepantla') {
-      src = "https://app.powerbi.com/reportEmbed?reportId=6be45fc4-3d1c-4e4f-a545-92776b7392ea&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
-    } else if(estacion === 'eca_tool') {
-      src = "https://app.powerbi.com/reportEmbed?reportId=449c2a0f-a1be-4fa6-827b-4500ab1b609f&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
-    } else if(estacion === 'nau_tool') {
-      src = "https://app.powerbi.com/reportEmbed?reportId=a4e021aa-4281-4f9b-a2fe-07d03d43871d&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
-    } else if(estacion === 'json_tool') {
-      src = "https://app.powerbi.com/reportEmbed?reportId=71c98777-7533-4821-b145-4ad8c9cc2e9d&autoAuth=true&ctid=fed0588c-2eb2-4466-bb01-afd3795657ec";
-    }
-
-    // Insertar el iframe en el contenedor con efecto fade-in
-    document.getElementById('contenedor').innerHTML = 
-      '<iframe src="'+src+'" allowFullScreen="true" class="visible"></iframe>';
-  }
-
-  function toggleSubmenu(id) {
-    const submenu = document.getElementById(id);
-    submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-  }
-</script>
 </body>
 </html>

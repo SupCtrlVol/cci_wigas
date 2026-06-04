@@ -20,6 +20,7 @@
       align-items: center;
       border-bottom: 8px solid #CA142B;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      position: relative;
     }
     header img {
       height: 45px;
@@ -90,6 +91,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
     }
     iframe {
       width: 100%;
@@ -108,6 +110,13 @@
       text-align: center;
       padding: 12px;
       font-size: 0.9em;
+    }
+    /* Estilo del widget bursátil */
+    .gas-widget {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
     }
   </style>
 </head>
@@ -151,12 +160,20 @@
 
     <div class="contenedor" id="contenedor">
       <p style="text-align:center; color:#555;">Selecciona un reporte para visualizarlo</p>
+
+      <!-- Widget bursátil de Gas Natural -->
+      <div class="gas-widget">
+        <iframe src="https://www.widgets.investing.com/live-commodities?theme=darkTheme&pairs=8863"
+                width="300" height="200" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0">
+        </iframe>
+      </div>
     </div>
   </div>
 
   <footer>
     Área de Controles Volumétricos
   </footer>
+
 <script>
   function mostrarReporte(estacion) {
     let src = '';
